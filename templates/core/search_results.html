@@ -1,0 +1,65 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Search Results - VIBE{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h2 class="mb-4" style="color: var(--ocean-deep);">
+            {% if query %}
+                Search results for "{{ query }}"
+            {% else %}
+                Search for people
+            {% endif %}
+        </h2>
+
+        {% if users %}
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+                {% for user in users %}
+                    <div class="col">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    {% if user.avatar %}
+                                        <img src="{{ user.avatar.url }}" alt="{{ user.username }}" 
+                                             class="rounded-circle me-3" style="width: 50px; height: 50px; object-fit: cover;">
+                                    {% else %}
+                                        <div class="rounded-circle me-3 d-flex align-items-center justify-content-center"
+                                             style="width: 50px; height: 50px; background-color: var(--ocean-light); color: white;">
+                                            {{ user.username.0|upper }}
+                                        </div>
+                                    {% endif %}
+                                    <div>
+                                        <h5 class="card-title mb-0">{{ user.get_full_name }}</h5>
+                                        <small class="text-muted">@{{ user.username }}</small>
+                                    </div>
+                                </div>
+                                {% if user.bio %}
+                                    <p class="card-text small mb-3">{{ user.bio|truncatechars:100 }}</p>
+                                {% endif %}
+                                {% if user.location %}
+                                    <p class="card-text small mb-2">
+                                        <i class="fas fa-map-marker-alt text-muted"></i>
+                                        {{ user.location }}
+                                    </p>
+                                {% endif %}
+                                <a href="#" class="btn btn-sm" style="background-color: var(--ocean-medium); color: white;">
+                                    View Profile
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="text-center py-5">
+                {% if query %}
+                    <p class="text-muted">No users found matching "{{ query }}"</p>
+                {% else %}
+                    <p class="text-muted">Start typing to search for people</p>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

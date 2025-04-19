@@ -1,0 +1,34 @@
+{% load static %}
+
+<div class="card mb-4 post-card" data-post-id="{{ post.id }}">
+    <div class="card-header bg-white">
+        <div class="d-flex align-items-center">
+            <img src="{{ post.user.get_avatar_url }}" alt="{{ post.user.get_full_name }}" class="rounded-circle me-2" style="width: 40px; height: 40px;">
+            <div>
+                <a href="{% url 'core:profile' post.user.username %}" class="text-decoration-none text-dark">
+                    <h6 class="mb-0">{{ post.user.get_full_name }}</h6>
+                </a>
+                <small class="text-muted">{{ post.created_at|date:"M d, Y, g:i a" }}</small>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <p class="card-text">{{ post.content }}</p>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-primary like-button {% if post.id in user_likes %}active{% endif %}"
+                        data-post-id="{{ post.id }}">
+                    <i class="bi bi-heart-fill"></i>
+                    <span class="likes-count">{{ post.get_likes_count }}</span>
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-primary comment-button" data-post-id="{{ post.id }}">
+                    <i class="bi bi-chat-fill"></i>
+                    <span class="comments-count">{{ post.get_comments_count }}</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer bg-white comments-container" style="display: none;">
+        {% include 'core/includes/comments.html' with post=post %}
+    </div>
+</div>

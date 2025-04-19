@@ -1,0 +1,80 @@
+/* Custom styles for VIBE social media platform */
+
+/* Form styles */
+.form-control:focus {
+    border-color: var(--ocean-medium);
+    box-shadow: 0 0 0 0.2rem rgba(79, 151, 163, 0.25);
+}
+
+/* Button styles */
+.btn-primary {
+    background-color: var(--ocean-deep);
+    border-color: var(--ocean-deep);
+}
+
+.btn-primary:hover {
+    background-color: var(--ocean-medium);
+    border-color: var(--ocean-medium);
+}
+
+/* Card styles */
+.card {
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+/* Profile styles */
+.profile-header {
+    background-color: var(--ocean-light);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.profile-avatar {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Post styles */
+.post-card {
+    margin-bottom: 1.5rem;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.post-avatar {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    margin-right: 1rem;
+}
+
+.post-actions {
+    display: flex;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.post-action {
+    color: var(--ocean-deep);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.post-action:hover {
+    color: var(--ocean-medium);
+}
