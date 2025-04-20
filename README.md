@@ -5,13 +5,13 @@ A social media app written in Django by using Windusrf, trying out vibe coding.
 
 ### How to run
 
-This project was built based on python3.11
+This project was built based on python3.12
 
 1. **Create a Python virtual environment**
 
    Run the following command to create a virtual environment:
    ```bash
-   python3.11 -m venv venv
+   python3.12 -m venv venv
    ```
 
 2. **Activate the virtual environment**

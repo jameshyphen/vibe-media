@@ -86,8 +86,12 @@ WSGI_APPLICATION = "social_media.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": os.getenv("DATABASE_ENGINE", "django.db.backends.sqlite3"),
-        "NAME": BASE_DIR / os.getenv("DATABASE_NAME", "db.sqlite3"),
+        "ENGINE": os.getenv("DATABASE_ENGINE", "django.db.backends.postgresql"),
+        "NAME": os.getenv("DATABASE_NAME", "social_media_db"),
+        "USER": os.getenv("DATABASE_USER", "social_media_user"),
+        "PASSWORD": os.getenv("DATABASE_PASSWORD", "social_media_password"),
+        "HOST": os.getenv("DATABASE_HOST", "localhost"),
+        "PORT": os.getenv("DATABASE_PORT", "5432"),
     }
 }
 
