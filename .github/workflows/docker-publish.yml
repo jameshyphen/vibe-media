@@ -63,4 +63,4 @@ jobs:
 
       - name: Image digest
         if: steps.release-version.outputs.next-version != ''
-        run: echo "Pushed image digest: ${{ steps.build-and-push.outputs.digest }}"
+        run: echo "Pushed image digest: ${{ steps.build-and-push.outputs.image_digest }}"
