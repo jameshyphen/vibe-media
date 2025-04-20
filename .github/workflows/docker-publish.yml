@@ -1,6 +1,7 @@
 name: Build & Push Docker Image
 
 on:
+  pull_request:
   workflow_dispatch:
     inputs:
       create_tag:
@@ -16,7 +17,6 @@ on:
   push:
     branches:
       - main
-  pull_request:
 
 jobs:
   build-and-push:
@@ -30,9 +30,8 @@ jobs:
         uses: tomtom-international/commisery-action/bump@v3.5.0
         with:
           token: ${{ github.token }}
-          create-tag: ${{ github.event.inputs.create_tag }}
-          create-release: ${{ github.event.inputs.create_release }}
-
+          create-tag: ${{ github.event.inputs.create_tag != null && github.event.inputs.create_tag || true }}
+          create-release: ${{ github.event.inputs.create_release != null && github.event.inputs.create_release || false }}
       - name: Set up QEMU
         if: steps.release-version.outputs.next-version != ''
         uses: docker/setup-qemu-action@v2
