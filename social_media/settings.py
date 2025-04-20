@@ -29,7 +29,7 @@ SECRET_KEY = "django-insecure-4i=co187&$6ta@9qt)5ey2!#ov($(x0)h(gt2xy724jhxjob#g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'vibe.local']
 
 CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:43439', 'http://127.0.0.1:37571']
 
