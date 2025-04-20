@@ -58,4 +58,4 @@ jobs:
             ${{ secrets.DOCKERHUB_USERNAME }}/vibe-media:${{ github.sha }}
 
       - name: Image digest
-        run: echo "Pushed image digest: ${{ steps.build-and-push.outputs.digest }}"
+        run: "echo 'Pushed image digest: ${{ steps.build-and-push.outputs.digest }}'"
