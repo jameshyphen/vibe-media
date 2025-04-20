@@ -51,7 +51,7 @@ jobs:
         with:
           context: .
           file: ./dockerfile
-          push: steps.release-version.outputs.next-version != ''
+          push: ${{ steps.release-version.outputs.next-version != '' }}
           tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/vibe-media:${{ steps.release-version.outputs.next-version }}
             ${{ secrets.DOCKERHUB_USERNAME }}/vibe-media:latest
